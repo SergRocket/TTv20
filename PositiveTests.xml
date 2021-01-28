@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PositiveLoginLogoutMedicineOrderTestsSuite" >
+    <test verbose="2" preserve-order="true" name="C:/Users/schimbay/IdeaProjects/TTv20" parallel = "methods" thread-count = "2">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="qa.hospital.ValidLogin">
+                <methods>
+                    <include name="validLog"/>
+                </methods>
+            </class>
+            <class name="qa.hospital.Logout">
+                <methods>
+                    <include name="logOut"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
