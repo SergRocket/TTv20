@@ -11,15 +11,15 @@ import org.openqa.selenium.opera.OperaDriver;
 public class BrowserDriverFactory {
  private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
  private String browser;
- private Logger logger;
+ //private Logger logger;
 
  public BrowserDriverFactory(String browser, Logger logger){
      this.browser=browser.toLowerCase();
-     this.logger=logger;
+     //this.logger=logger;
  }
 
  public WebDriver createDriver(){
-     logger.info("driver was created ");
+    // logger.info("driver was created ");
 
      switch (browser){
          case "chrome":
@@ -31,7 +31,7 @@ public class BrowserDriverFactory {
              driver.set(new OperaDriver());
              break;
          default:
-             logger.info("The test was completed");
+            // logger.info("The test was completed");
      }
      return driver.get();
  }

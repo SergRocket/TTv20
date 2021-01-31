@@ -50,25 +50,20 @@ public class MedicationPage extends BasePage {
         super(driver);
     }
 
-    public void MedicRequest(String searchFor, String medications, String prescriptions){
+    public void openRequestPage (){
         wait.until(ExpectedConditions.visibilityOfAllElements(patients, medication));
         medicationSection.click();
         wait.until(ExpectedConditions.visibilityOfAllElements(requests, completed, returnMedication, newRequest));
         newRequest.click();
         patient.click();
+    }
+
+    public void dataInput (String searchFor, String medications, String prescriptions){
         patient.sendKeys(searchFor);
-        int i=1;
-        while(i<3){
-            patient.sendKeys(Keys.ARROW_DOWN);
-            i++;
-        }
+        clickArrow(6,patients);
         patient.sendKeys(Keys.ENTER);
         visitDate.click();
-        int c=1;
-        while(c<4) {
-            visitDate.sendKeys(Keys.ARROW_DOWN);
-            c++;
-        }
+        clickArrow(5,visitDate);
         visitDate.sendKeys(Keys.ENTER);
         medication.sendKeys(medications);
         medication.sendKeys(Keys.ARROW_DOWN);
@@ -87,6 +82,9 @@ public class MedicationPage extends BasePage {
         quantit.sendKeys(QR);
         refils.sendKeys(QRef);
         addButton.click();
+    }
+
+    public void finPopUp (){
         wait.until(ExpectedConditions.visibilityOfAllElements(modalWin, oKButton,closeBut));
         boolean popUp = (modalWin.isDisplayed() && oKButton.isDisplayed() && closeBut.isDisplayed());
         if (popUp){

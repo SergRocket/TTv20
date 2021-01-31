@@ -22,22 +22,16 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver){super(driver);}
 
-    public void login(String username, String password) {
+    public MainPage login(String username, String password) {
         waitForElementToBeVisible(usernameInput);
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
+        return new MainPage(driver);
     }
 
     public String getErrorMessage() {
         waitForElementToBeVisible(errorMassage);
         return errorMassage.getText();
     }
-
-    public void logOut(){
-        wait.until(ExpectedConditions.visibilityOfAllElements(cogWheel));
-        cogWheel.click();
-        logoutButton.click();
-    }
-
 }

@@ -23,9 +23,9 @@ public class BaseTest {
     protected Logger logger;
     @Parameters({"browser"})
     @BeforeMethod
-    public void beforeLogin(@Optional()String browser, ITestContext testContext) {
-        String validLoginTest = testContext.getCurrentXmlTest().getName();
-        logger = LogManager.getLogger(validLoginTest);
+    public void beforeLogin(@Optional("chrome")String browser, ITestContext testContext) {
+        //String validLoginTest = testContext.getCurrentXmlTest().getName();
+        //logger = LogManager.getLogger(validLoginTest);
         BrowserDriverFactory browserDriverFactory = new BrowserDriverFactory(browser, logger);
         driver=browserDriverFactory.createDriver();
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);

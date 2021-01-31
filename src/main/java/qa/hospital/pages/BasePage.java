@@ -24,4 +24,11 @@ public class BasePage {
     protected void waitForElementToBeVisible(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    public void clickArrow (int click, WebElement element){
+        while (click<10){
+            element.click();
+            click++;
+        }
+    }
 }
